@@ -1,0 +1,18 @@
+package com.example.empsearch.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ControllerAdvice
+class QueryMalformedAdvice {
+
+    @ResponseBody
+    @ExceptionHandler(QueryMalformedException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    String queryMalformedHandler(QueryMalformedException exception) {
+        return exception.getMessage();
+    }
+}
