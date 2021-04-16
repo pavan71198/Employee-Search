@@ -1,119 +1,129 @@
 package com.example.empsearch.entity;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.elasticsearch.annotations.Document;
-import org.springframework.data.elasticsearch.annotations.Field;
-import org.springframework.data.elasticsearch.annotations.FieldType;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
-@Document(indexName = "companydatabase")
+import java.util.UUID;
+
 public class Employee {
-    @Id
     private String Id;
-    @Field (type = FieldType.Text, name="FirstName")
     private String FirstName;
-    @Field (type = FieldType.Text, name="LastName")
     private String LastName;
-    @Field (type = FieldType.Text, name="Designation")
     private String Designation;
-    @Field (type = FieldType.Long, name="Salary")
     private Long Salary;
-    @Field (type = FieldType.Date, name="DateOfJoining")
     private String DateOfJoining;
-    @Field (type = FieldType.Text, name="Address")
     private String Address;
-    @Field (type = FieldType.Text, name="Gender")
     private String Gender;
-    @Field (type = FieldType.Long, name="Age")
     private Long Age;
-    @Field (type = FieldType.Text, name="MaritalStatus")
     private String MaritalStatus;
-    @Field (type = FieldType.Text, name="Interests")
     private String Interests;
 
+    @JsonGetter("id")
     public String getId() {
         return Id;
     }
 
+    @JsonSetter("id")
     public void setId(String Id) {
         this.Id = Id;
     }
 
+    @JsonGetter("FirstName")
     public String getFirstName() {
         return FirstName;
     }
 
+    @JsonSetter("FirstName")
     public void setFirstName(String FirstName) {
         this.FirstName = FirstName;
     }
 
+    @JsonGetter("LastName")
     public String getLastName() {
         return LastName;
     }
 
+    @JsonSetter("LastName")
     public void setLastName(String LastName) {
         this.LastName = LastName;
     }
 
+    @JsonGetter("Designation")
     public String getDesignation() {
         return Designation;
     }
 
+    @JsonSetter("Designation")
     public void setDesignation(String Designation) {
         this.Designation = Designation;
     }
 
+    @JsonGetter("Salary")
     public Long getSalary() {
         return Salary;
     }
 
+    @JsonSetter("Salary")
     public void setSalary(Long Salary) {
         this.Salary = Salary;
     }
 
+    @JsonGetter("DateOfJoining")
     public String getDateOfJoining() {
         return DateOfJoining;
     }
 
+    @JsonSetter("DateOfJoining")
     public void setDateOfJoining(String DateOfJoining) {
         this.DateOfJoining = DateOfJoining;
     }
 
+    @JsonGetter("Address")
     public String getAddress() {
         return Address;
     }
 
+    @JsonSetter("Address")
     public void setAddress(String Address) {
         this.Address = Address;
     }
 
+    @JsonGetter("Gender")
     public String getGender() {
         return Gender;
     }
 
+    @JsonSetter("Gender")
     public void setGender(String Gender) {
         this.Gender = Gender;
     }
 
+    @JsonGetter("Age")
     public Long getAge() {
         return Age;
     }
 
+    @JsonSetter("Age")
     public void setAge(Long Age) {
         this.Age = Age;
     }
 
+    @JsonGetter("MaritalStatus")
     public String getMaritalStatus() {
         return MaritalStatus;
     }
 
+    @JsonSetter("MaritalStatus")
     public void setMaritalStatus(String MaritalStatus) {
         this.MaritalStatus = MaritalStatus;
     }
 
+    @JsonGetter("Interests")
     public String getInterests() {
         return Interests;
     }
 
+    @JsonSetter("Interests")
     public void setInterests(String Interests) {
         this.Interests = Interests;
     }
@@ -136,6 +146,7 @@ public class Employee {
     }
 
     public Employee(String FirstName, String LastName, String Designation, Long Salary, String DateOfJoining, String Address, String Gender, Long Age, String MaritalStatus, String Interests) {
+        this.Id = UUID.randomUUID().toString();
         this.FirstName = FirstName;
         this.LastName = LastName;
         this.Designation = Designation;

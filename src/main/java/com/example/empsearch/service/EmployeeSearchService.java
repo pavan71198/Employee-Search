@@ -7,7 +7,11 @@ import java.util.List;
 
 public interface EmployeeSearchService {
 
-    List<String> ingestData(List<EmployeeRequestDto> employeeRequestDtoList);
-    List<EmployeeResponseDto> searchEmployee(String query);
+    String ingestData(List<EmployeeRequestDto> employeeRequestDtoList);
+    EmployeeResponseDto findById(String id);
+    List<EmployeeResponseDto> findAll();
+    List<EmployeeResponseDto> searchByName(String query);
+    List<EmployeeResponseDto> searchByInterest(String query);
+    List<EmployeeResponseDto> searchByAll(String query);
     String clearData();
 }

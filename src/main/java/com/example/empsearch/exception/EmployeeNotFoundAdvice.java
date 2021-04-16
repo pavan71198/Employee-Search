@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-class QueryMalformedAdvice {
+class EmployeeNotFoundAdvice {
 
     @ResponseBody
-    @ExceptionHandler(QueryMalformedException.class)
+    @ExceptionHandler(EmployeeNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String queryMalformedHandler(QueryMalformedException exception) {
+    String employeeNotFoundHandler(EmployeeNotFoundException exception) {
         return exception.getMessage();
     }
 }
